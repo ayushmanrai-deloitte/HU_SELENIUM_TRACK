@@ -13,12 +13,13 @@ public class Alertassign {
         Thread.sleep (2000);
         dri.findElement(By.xpath("//*[@id=\"content\"]/div/ul/li[3]/button")).click();//click on js prompt
         Thread.sleep (3000);
+        System.out.println(dri.switchTo().alert().getText());
         String expected = "You entered: Ex-Test";//alert input
         dri.switchTo().alert().sendKeys("Ex-Test");
         Thread.sleep (3000);
         dri.switchTo().alert().accept();
-        String input = dri.findElement(By.xpath("//*[@id=\"content\"]/div/h4")).getText();
-        if (expected.equals(input)== true)
+        String input = dri.findElement(By.xpath("//*[@id='result']")).getText();
+        if (input.contains("Ex-Text"))
         {
             System.out.println("VERIFIED");
         }else
